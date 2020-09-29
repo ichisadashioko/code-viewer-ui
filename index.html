@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>code-viewer-ui</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            color: #ffffff;
+            background-color: #000000;
+        }
+
+        .code-viewer-container {
+            font-family: 'Consolas', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="code-viewer-container"></div>
+    <script>
+        let appDiv = document.getElementById('app')
+        let olElement = document.createElement('ol')
+        appDiv.appendChild(olElement)
+        let sampleCodeContent = `                Hypertext Transfer Protocol -- HTTP/1.1
+
+Status of this Memo
+
+   This document specifies an Internet standards track protocol for the
+   Internet community, and requests discussion and suggestions for
+   improvements.  Please refer to the current edition of the "Internet
+   Official Protocol Standards" (STD 1) for the standardization state
+   and status of this protocol.  Distribution of this memo is unlimited.
+`
+
+        let lines = sampleCodeContent.split('\n')
+
+        for(let i = 0, n = lines.length; i < n; i++){
+            let liElement = document.createElement('li')
+            liElement.textContent = lines[i]
+            olElement.appendChild(liElement)
+        }
+
+    </script>
+</body>
+
+</html>
